@@ -8,6 +8,9 @@ export const getRandomRecipies = async () => {
 }
 
 export const searchRecipies = async (query) => {
+    if (!query.trim()) {
+        return getRandomRecipies()
+    }
     const response = await fetch(`${BASE_URL}/complexSearch?query=${query}&number=10&addRecipeInformation=true&apiKey=${API_KEY}`)
     const data = await response.json();
     return data.results;
