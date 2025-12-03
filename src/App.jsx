@@ -31,7 +31,6 @@ function App() {
 
   const handleSearch = async (e) => {
     e.preventDefault()
-    if (!searchQuery.trim()) return getRandomRecipies()
     if (loading) return
 
     setLoading(true)
